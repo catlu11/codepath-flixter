@@ -20,33 +20,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Table setup
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 200;
     
+    // Refresh setup
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=99c35d01f55c02ab3de5e8b1c7d5b6c8"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-           if (error != nil) {
-               NSLog(@"%@", [error localizedDescription]);
-           }
-           else {
-               NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+       if (error != nil) {
+           NSLog(@"%@", [error localizedDescription]);
+       }
+       else {
+           NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
-//               NSLog(@"%@", dataDictionary);// log an object with the %@ formatter.
-               
-               // TODO: Get the array of movies
-               NSArray *movieArray = dataDictionary[@"results"];
-               
-               // TODO: Store the movies in a property to use elsewhere
-               self.myArray = movieArray;
-//               NSLog(@"%@", self.myArray);// log an object with the %@ formatter.
-               
-               // TODO: Reload your table view data
-               [self.tableView reloadData];
-           }
-       }];
+           NSArray *movieArray = dataDictionary[@"results"];
+           self.myArray = movieArray;
+           [self.tableView reloadData];
+       }
+   }];
     [task resume];
 }
 
@@ -77,6 +74,38 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.myArray.count;
+}
+
+// TODO: might need to test refreshes more!
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    // Create NSURL and NSURLRequest
+    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=99c35d01f55c02ab3de5e8b1c7d5b6c8"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+                                                          delegate:nil
+                                                     delegateQueue:[NSOperationQueue mainQueue]];
+    session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+   
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+       if (error != nil) {
+           NSLog(@"%@", [error localizedDescription]);
+       }
+       else {
+           NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+           NSArray *movieArray = dataDictionary[@"results"];
+           self.myArray = movieArray;
+       }
+
+       // Reload the tableView now that there is new data
+        [self.tableView reloadData];
+
+       // Tell the refreshControl to stop spinning
+        [refreshControl endRefreshing];
+
+    }];
+
+    [task resume];
 }
 
 @end
