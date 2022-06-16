@@ -21,6 +21,7 @@
 		F0768727285A45660013C25B /* FlixterUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0768726285A45660013C25B /* FlixterUITestsLaunchTests.m */; };
 		F0768735285A4B0E0013C25B /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0768734285A4B0E0013C25B /* MovieViewController.m */; };
 		F0768738285A57CE0013C25B /* CellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0768737285A57CE0013C25B /* CellTableViewCell.m */; };
+		F0F4EE65285AA2A600E4463B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F4EE63285AA2A600E4463B /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		F0768734285A4B0E0013C25B /* MovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
 		F0768736285A57CE0013C25B /* CellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellTableViewCell.h; sourceTree = "<group>"; };
 		F0768737285A57CE0013C25B /* CellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellTableViewCell.m; sourceTree = "<group>"; };
+		F0F4EE63285AA2A600E4463B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = /Users/catherinelu/Documents/Flixter/Flixter/DetailsViewController.m; sourceTree = "<absolute>"; };
+		F0F4EE64285AA2A600E4463B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = /Users/catherinelu/Documents/Flixter/Flixter/DetailsViewController.h; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +122,6 @@
 				93B891AE59B28B2C0AD70BE3 /* Pods-FlixterTests.debug.xcconfig */,
 				5371D2268140151958FCAA16 /* Pods-FlixterTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -149,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				F07686FE285A45660013C25B /* AppDelegate.h */,
+				F0F4EE64285AA2A600E4463B /* DetailsViewController.h */,
+				F0F4EE63285AA2A600E4463B /* DetailsViewController.m */,
 				F07686FF285A45660013C25B /* AppDelegate.m */,
 				F0768701285A45660013C25B /* SceneDelegate.h */,
 				F0768702285A45660013C25B /* SceneDelegate.m */,
@@ -423,6 +427,7 @@
 				F0768700285A45660013C25B /* AppDelegate.m in Sources */,
 				F0768711285A45660013C25B /* main.m in Sources */,
 				F0768703285A45660013C25B /* SceneDelegate.m in Sources */,
+				F0F4EE65285AA2A600E4463B /* DetailsViewController.m in Sources */,
 				F0768735285A4B0E0013C25B /* MovieViewController.m in Sources */,
 				F0768738285A57CE0013C25B /* CellTableViewCell.m in Sources */,
 			);
