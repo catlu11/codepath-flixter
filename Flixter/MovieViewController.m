@@ -34,6 +34,19 @@
     // Activity indicator setup
     [self.activityIndicator startAnimating];
     
+    // Alert setup
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies"
+        message:@"The Internet connection appears to be offline."
+        preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* refreshAction = [UIAlertAction actionWithTitle:@"Try again"
+        style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction * action) {
+        [self viewDidLoad];
+    }];
+    
+    [alert addAction:refreshAction];
+    
     // API call
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=99c35d01f55c02ab3de5e8b1c7d5b6c8"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -41,9 +54,9 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
        if (error != nil) {
            NSLog(@"%@", [error localizedDescription]);
+           [self presentViewController:alert animated:YES completion:nil];
        }
        else {
-           
            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
            NSArray *movieArray = dataDictionary[@"results"];
