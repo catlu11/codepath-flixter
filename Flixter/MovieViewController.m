@@ -44,7 +44,7 @@
         handler:^(UIAlertAction * action) {
         [self viewDidLoad];
     }];
-    
+
     [alert addAction:refreshAction];
     
     // API call
@@ -87,7 +87,7 @@
     NSString *stringURL = [baseURL stringByAppendingString:posterURL];
     NSURL *imageURL = [NSURL URLWithString:stringURL];
     
-    [cell.imageView setImageWithURL:imageURL];
+    [cell.posterImage setImageWithURL:imageURL];
     
     return cell;
 }
@@ -96,7 +96,6 @@
     return self.myArray.count;
 }
 
-// TODO: might need to test refreshes more!
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     // Create NSURL and NSURLRequest
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=99c35d01f55c02ab3de5e8b1c7d5b6c8"];

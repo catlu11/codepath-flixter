@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ratingNumLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
 @end
 
@@ -27,6 +28,7 @@
     NSString *stringURL = [baseURL stringByAppendingString:posterURL];
     NSURL *imageURL = [NSURL URLWithString:stringURL];
     [self.bigImage setImageWithURL:imageURL];
+    [self.thumbImage setImageWithURL:imageURL];
     
     self.titleLabel.text = self.detailsDict[@"original_title"];
     NSNumber *ratingNum = self.detailsDict[@"vote_average"];
@@ -34,6 +36,7 @@
     NSLog(@"%@", ratingString);
     self.ratingNumLabel.text = ratingString;
     self.synopsisLabel.text = self.detailsDict[@"overview"];
+    [self.synopsisLabel sizeToFit];
 }
 
 /*
