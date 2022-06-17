@@ -83,23 +83,37 @@
     cell.synopsisLabel.text = self.movieArray[indexPath.row][@"overview"];
     cell.titleLabel.text = self.movieArray[indexPath.row][@"original_title"];
     
-    NSString *baseURL = @"https://image.tmdb.org/t/p/w500";
+    NSString *baseSmallURL = @"https://image.tmdb.org/t/p/w45";
+    NSString *baseBigURL = @"https://image.tmdb.org/t/p/original";
     NSString *posterURL = self.movieArray[indexPath.row][@"poster_path"];
-    NSString *stringURL = [baseURL stringByAppendingString:posterURL];
-    NSURL *imageURL = [NSURL URLWithString:stringURL];
+    NSString *smallURL = [baseSmallURL stringByAppendingString:posterURL];
+    NSString *bigURL = [baseBigURL stringByAppendingString:posterURL];
+    NSURL *imageSmallURL = [NSURL URLWithString:smallURL];
+    NSURL *imageBigURL = [NSURL URLWithString:bigURL];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
-    [cell.posterImage setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+    NSURLRequest *requestSmall = [NSURLRequest requestWithURL:imageSmallURL];
+    NSURLRequest *requestBig = [NSURLRequest requestWithURL:imageBigURL];
+    [cell.posterImage setImageWithURLRequest:requestSmall placeholderImage:nil success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *smallImage) {
          if (imageResponse) {
              cell.posterImage.alpha = 0.0;
-             cell.posterImage.image = image;
+             cell.posterImage.image = smallImage;
              
              [UIView animateWithDuration:0.3 animations:^{
                  cell.posterImage.alpha = 1.0;
-             }];
+             } completion:^(BOOL finished) {
+                 // The AFNetworking ImageView Category only allows one request to be sent at a time
+                 // per ImageView. This code must be in the completion block.
+                 [cell.posterImage setImageWithURLRequest:requestBig placeholderImage:smallImage
+                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage * largeImage) {
+                             cell.posterImage.image = largeImage;
+                        }
+                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                            NSLog(@"Failed to retrieve larger image.");
+                        }];
+            }];
          }
          else {
-             cell.posterImage.image = image;
+             cell.posterImage.image = smallImage;
          }
      }
      failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
