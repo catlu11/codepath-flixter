@@ -60,7 +60,23 @@
     NSString *stringURL = [baseURL stringByAppendingString:posterURL];
     NSURL *imageURL = [NSURL URLWithString:stringURL];
     
-    [cell.movieImageView setImageWithURL:imageURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+    [cell.movieImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+         if (imageResponse) {
+             cell.movieImageView.alpha = 0.0;
+             cell.movieImageView.image = image;
+             
+             [UIView animateWithDuration:0.3 animations:^{
+                 cell.movieImageView.alpha = 1.0;
+             }];
+         }
+         else {
+             cell.movieImageView.image = image;
+         }
+     }
+     failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+        NSLog(@"Failed to retrieve image.");
+     }];
     
     return cell;
 }

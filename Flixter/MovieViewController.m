@@ -88,8 +88,24 @@
     NSString *stringURL = [baseURL stringByAppendingString:posterURL];
     NSURL *imageURL = [NSURL URLWithString:stringURL];
     
-    [cell.posterImage setImageWithURL:imageURL];
-    
+    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+    [cell.posterImage setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+         if (imageResponse) {
+             cell.posterImage.alpha = 0.0;
+             cell.posterImage.image = image;
+             
+             [UIView animateWithDuration:0.3 animations:^{
+                 cell.posterImage.alpha = 1.0;
+             }];
+         }
+         else {
+             cell.posterImage.image = image;
+         }
+     }
+     failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+        NSLog(@"Failed to retrieve image.");
+     }];
+     
     return cell;
 }
 
