@@ -41,7 +41,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 The first video is a quick demo of the app's features. The second video demonstrates the app's network error handling.
 
 <img src='Demo/flixter_demo.gif' title='Video Walkthrough' alt='Video Walkthrough' width='200'/>
-<img src='Demo/flixter_network_demo.gif' title='Network Error Walkthrough' alt='Network Error Walkthrough' width='200'/>
+<img src='Demo/flixter-network-demo.gif' title='Network Error Walkthrough' alt='Network Error Walkthrough' width='200'/>
 
 ## Notes
 
