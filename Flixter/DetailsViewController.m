@@ -33,7 +33,7 @@
     self.titleLabel.text = self.detailsDict[@"original_title"];
     NSNumber *ratingNum = self.detailsDict[@"vote_average"];
     NSString *ratingString = [NSString stringWithFormat:@"%@", ratingNum];
-    NSLog(@"%@", ratingString);
+//    NSLog(@"%@", ratingString);
     self.ratingNumLabel.text = ratingString;
     self.synopsisLabel.text = self.detailsDict[@"overview"];
     [self.synopsisLabel sizeToFit];

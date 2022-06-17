@@ -69,6 +69,9 @@
 
 }
 
+- (void)fetchMovieData {
+    
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSDictionary *dataToPass = self.myArray[self.tableView.indexPathForSelectedRow.row];
