@@ -7,6 +7,7 @@
 
 #import "GridViewController.h"
 #import "MovieCollectionCell.h"
+#import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface GridViewController () <UICollectionViewDataSource>
@@ -39,6 +40,12 @@
        }
    }];
     [task resume];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSDictionary *dataToPass = self.posterData[self.collectionView.indexPathsForSelectedItems[0].item];
+    DetailsViewController *detailVC = [segue destinationViewController];
+    detailVC.detailsDict = dataToPass;
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
