@@ -24,12 +24,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Load images
-    NSString *baseURL = @"https://image.tmdb.org/t/p/w500";
+//    NSString *baseURL = @"https://image.tmdb.org/t/p/w500";
+//    NSString *posterURL = self.detailsDict[@"poster_path"];
+//    NSString *stringURL = [baseURL stringByAppendingString:posterURL];
+//    NSURL *imageURL = [NSURL URLWithString:stringURL];
+//
+    NSString *baseSmallURL = @"https://image.tmdb.org/t/p/w45";
+    NSString *baseBigURL = @"https://image.tmdb.org/t/p/original";
     NSString *posterURL = self.detailsDict[@"poster_path"];
-    NSString *stringURL = [baseURL stringByAppendingString:posterURL];
-    NSURL *imageURL = [NSURL URLWithString:stringURL];
-    [self.bigImage setImageWithURL:imageURL];
-    [self.thumbImage setImageWithURL:imageURL];
+    NSString *smallURL = [baseSmallURL stringByAppendingString:posterURL];
+    NSString *bigURL = [baseBigURL stringByAppendingString:posterURL];
+    NSURL *imageSmallURL = [NSURL URLWithString:smallURL];
+    NSURL *imageBigURL = [NSURL URLWithString:bigURL];
+    
+    NSURLRequest *requestSmall = [NSURLRequest requestWithURL:imageSmallURL];
+    NSURLRequest *requestBig = [NSURLRequest requestWithURL:imageBigURL];
+
+    [self.thumbImage setImageWithURL:imageBigURL];
+    [self.bigImage setImageWithURLRequest:requestSmall placeholderImage:nil success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *smallImage) {
+         self.bigImage.image = smallImage;
+         
+         [self.bigImage setImageWithURLRequest:requestBig placeholderImage:smallImage
+                success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage * largeImage) {
+                    self.bigImage.image = largeImage;
+                }
+                failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                    NSLog(@"Failed to retrieve larger image.");
+                }];
+        }
+        failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+            NSLog(@"Failed to retrieve image.");
+    }];
     
     // Set title text
     self.titleLabel.text = self.detailsDict[@"original_title"];

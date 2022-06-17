@@ -74,8 +74,6 @@
              [UIView animateWithDuration:0.3 animations:^{
                  cell.movieImageView.alpha = 1.0;
              } completion:^(BOOL finished) {
-                 // The AFNetworking ImageView Category only allows one request to be sent at a time
-                 // per ImageView. This code must be in the completion block.
                  [cell.movieImageView setImageWithURLRequest:requestBig placeholderImage:smallImage
                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage * largeImage) {
                              cell.movieImageView.image = largeImage;
