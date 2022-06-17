@@ -6,6 +6,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "TrailerViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
@@ -14,6 +15,7 @@
     @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
     @property (weak, nonatomic) IBOutlet UILabel *ratingNumLabel;
     @property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
+    @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *thumbTapGesture;
     @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
 @end
 
@@ -21,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     // Load images
     NSString *baseURL = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURL = self.detailsDict[@"poster_path"];
@@ -41,6 +42,16 @@
     // Set synopsis text
     self.synopsisLabel.text = self.detailsDict[@"overview"];
     [self.synopsisLabel sizeToFit];
+}
+
+//- (IBAction)didTap:(UITapGestureRecognizer *)sender {
+//    CGPoint location = [sender locationInView:self.view];
+//   // User tapped at the point above. Do something with that if you want.
+//}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    TrailerViewController *trailerVC = [segue destinationViewController];
+    trailerVC.detailsDict = self.detailsDict;
 }
 
 @end

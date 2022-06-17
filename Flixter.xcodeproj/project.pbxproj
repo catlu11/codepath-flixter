@@ -24,6 +24,8 @@
 		F0F4EE65285AA2A600E4463B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F4EE63285AA2A600E4463B /* DetailsViewController.m */; };
 		F0F4EE6B285BC68000E4463B /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F4EE6A285BC68000E4463B /* GridViewController.m */; };
 		F0F4EE6E285BC93B00E4463B /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F4EE6D285BC93B00E4463B /* MovieCollectionCell.m */; };
+		F0F4EE70285CF7C400E4463B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F4EE6F285CF7C400E4463B /* WebKit.framework */; };
+		F0F4EE73285CF83D00E4463B /* TrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F4EE72285CF83D00E4463B /* TrailerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		F0F4EE6A285BC68000E4463B /* GridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		F0F4EE6C285BC93B00E4463B /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
 		F0F4EE6D285BC93B00E4463B /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
+		F0F4EE6F285CF7C400E4463B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		F0F4EE71285CF83D00E4463B /* TrailerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailerViewController.h; sourceTree = "<group>"; };
+		F0F4EE72285CF83D00E4463B /* TrailerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F4EE70285CF7C400E4463B /* WebKit.framework in Frameworks */,
 				1F52E617C9F25FE57AC8B2DA /* Pods_Flixter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +117,7 @@
 		1412CD91B6ED54B899891FAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0F4EE6F285CF7C400E4463B /* WebKit.framework */,
 				EDAF0ABA41F0288A2885892E /* Pods_Flixter.framework */,
 				0AB7EB429213E007D724ACE8 /* Pods_Flixter_FlixterUITests.framework */,
 				64B92F6574BB4EA50C71A53B /* Pods_FlixterTests.framework */,
@@ -165,6 +172,8 @@
 				F0F4EE69285BC68000E4463B /* GridViewController.h */,
 				F0F4EE6A285BC68000E4463B /* GridViewController.m */,
 				F0768707285A45660013C25B /* Main.storyboard */,
+				F0F4EE71285CF83D00E4463B /* TrailerViewController.h */,
+				F0F4EE72285CF83D00E4463B /* TrailerViewController.m */,
 				F0F4EE6C285BC93B00E4463B /* MovieCollectionCell.h */,
 				F0F4EE6D285BC93B00E4463B /* MovieCollectionCell.m */,
 				F0768736285A57CE0013C25B /* CellTableViewCell.h */,
@@ -441,6 +450,7 @@
 				F0F4EE6E285BC93B00E4463B /* MovieCollectionCell.m in Sources */,
 				F0F4EE65285AA2A600E4463B /* DetailsViewController.m in Sources */,
 				F0768735285A4B0E0013C25B /* MovieViewController.m in Sources */,
+				F0F4EE73285CF83D00E4463B /* TrailerViewController.m in Sources */,
 				F0768738285A57CE0013C25B /* CellTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

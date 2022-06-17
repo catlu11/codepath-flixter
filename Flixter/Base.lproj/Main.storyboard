@@ -115,9 +115,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-H3-rJq">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-H3-rJq">
                                         <rect key="frame" x="21" y="237" width="158" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ufM-16-5fN" appends="YES" id="L7w-iq-iKw"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xko-s3-UXL">
                                         <rect key="frame" x="268" y="390" width="128" height="21"/>
@@ -152,12 +156,57 @@
                         <outlet property="ratingNumLabel" destination="xko-s3-UXL" id="Z8Q-8a-Tct"/>
                         <outlet property="synopsisLabel" destination="Mv5-hc-AmE" id="vo8-Mx-2IY"/>
                         <outlet property="thumbImage" destination="60Z-H3-rJq" id="790-9Z-CMV"/>
+                        <outlet property="thumbTapGesture" destination="ufM-16-5fN" id="uuv-lM-2hk"/>
                         <outlet property="titleLabel" destination="mna-GI-YHo" id="tXG-ac-teP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQH-dK-lhE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ufM-16-5fN">
+                    <connections>
+                        <segue destination="mvs-IG-1mp" kind="presentation" id="WLP-6r-I1r"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-46" y="173"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="QSX-nS-NJp">
+            <objects>
+                <viewController id="mvs-IG-1mp" customClass="TrailerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K6b-KQ-8AU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="404-ct-eSg">
+                                <rect key="frame" x="-1" y="10" width="92" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="closeView:" destination="mvs-IG-1mp" eventType="touchUpInside" id="y5b-7y-E2h"/>
+                                </connections>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erF-pP-jrV">
+                                <rect key="frame" x="0.0" y="61" width="414" height="747"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ed5-0J-emu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="404-ct-eSg" id="7kf-s6-dxg"/>
+                        <outlet property="webVideoView" destination="erF-pP-jrV" id="TB9-pR-fdx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDw-oL-09a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-46.376811594202906" y="872.54464285714278"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="pnY-8o-XPN">
@@ -290,7 +339,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0fr-1I-gdh"/>
+        <segue reference="idb-A2-QwI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
