@@ -10,8 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MovieCollectionCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
-
+    @property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
 @end
 
 NS_ASSUME_NONNULL_END
