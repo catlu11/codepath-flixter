@@ -41,7 +41,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='flixter_demo.gif' title='Video Walkthrough' alt='Video Walkthrough' />
+<img src='flixter_demo.gif' title='Video Walkthrough' alt='Video Walkthrough' width='200'/>
 
 ## Notes
 
