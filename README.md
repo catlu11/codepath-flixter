@@ -1,8 +1,8 @@
 # Project 1 - Flixter
 
-**Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Flixter** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -11,53 +11,49 @@ The following **required** functionality is complete:
 - [x] User sees an app icon on the home screen and a styled launch screen.
 - [x] User can view a list of movies currently playing in theaters from The Movie Database.
 - [x] Poster images are loaded using the UIImageView category in the AFNetworking library.
-- [ ] User sees a loading state while waiting for the movies API.
-- [ ] User can pull to refresh the movie list.
-- [ ] User sees an error message when there's a networking error.
-- [ ] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
+- [x] User sees a loading state while waiting for the movies API.
+- [x] User can pull to refresh the movie list.
+- [x] User sees an error message when there's a networking error.
+- [x] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
 The following **optional** features are implemented:
 
-- [ ] User can tap a poster in the collection view to see a detail screen of that movie
-- [ ] User can search for a movie.
-- [ ] All images fade in as they are loading.
-- [ ] User can view the large movie poster by tapping on a cell.
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [ ] Customize the selection effect of the cell.
-- [ ] Customize the navigation bar.
+- [x] User can tap a poster in the collection view to see a detail screen of that movie
+- [x] User can search for a movie.
+- [x] All images fade in as they are loading.
+- [x] User can view the large movie poster by tapping on a cell.
+- [x] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [x] Customize the selection effect of the cell.
+- [x] Customize the navigation bar.
 - [ ] Customize the UI.
 - [ ] Run your app on a real device.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Movie trailer can be viewed by tapping on movie poster on detail screen.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Autolayouts and ways to improve formatting across devices
+2. Customization of movie trailer web view
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [Kap](https://getkap.co/).
+<img src='https://i.imgur.com/BEr2vir.gif' title='Video Walkthrough' alt='Video Walkthrough' />
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Formatting and getting layouts to behave as expected was a challenge throughout the project – UI may only display as intended on iPhone 11.
 
 ## Credits
-
-List an 3rd party libraries, icons, graphics, or other assets you used in your app.
-
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [WebKit](https://webkit.org/) - web browser engine
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2022 Catherine Lu
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
