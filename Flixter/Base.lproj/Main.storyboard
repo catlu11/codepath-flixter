@@ -320,11 +320,11 @@
             </objects>
             <point key="canvasLocation" x="-162" y="-1295"/>
         </scene>
-        <!--Item-->
+        <!--Movies-->
         <scene sceneID="9rM-zp-Wkw">
             <objects>
-                <navigationController id="dbI-nu-cKa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="projector_tabbar_item" selectedImage="projector_tabbar_item" id="V3h-Rs-vm5"/>
+                <navigationController title="Movies" id="dbI-nu-cKa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="projector_tabbar_item" selectedImage="projector_tabbar_item" id="V3h-Rs-vm5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OBW-Qg-8RH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

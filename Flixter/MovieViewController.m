@@ -119,7 +119,8 @@
      failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
         NSLog(@"Failed to retrieve image.");
      }];
-     
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
