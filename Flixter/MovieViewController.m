@@ -25,7 +25,7 @@
     
     // Table setup
     self.movieListView.dataSource = self;
-    self.movieListView.rowHeight = 200;
+    self.movieListView.rowHeight = UITableViewAutomaticDimension;
     
     // Refresh setup
     self.refreshControl = [[UIRefreshControl alloc] init];
