@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-Zc-2OV">
-                                <rect key="frame" x="0.0" y="84" width="414" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-Zc-2OV">
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="724.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="195" id="sCQ-6E-LQH" customClass="CellTableViewCell">
@@ -58,9 +57,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Now Playing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87H-fp-D8r">
-                                <rect key="frame" x="20" y="52" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87H-fp-D8r">
+                                <rect key="frame" x="157" y="68" width="100.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,6 +71,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bPS-Zc-2OV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Kkq-pU-mEh"/>
+                            <constraint firstItem="bPS-Zc-2OV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Okh-kO-vwJ"/>
+                            <constraint firstItem="bPS-Zc-2OV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="RmD-d8-Jnl"/>
+                            <constraint firstItem="bPS-Zc-2OV" firstAttribute="top" secondItem="87H-fp-D8r" secondAttribute="bottom" id="UJQ-Kb-ju4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="87H-fp-D8r" secondAttribute="top" constant="20" id="Ubk-0g-5V2"/>
+                            <constraint firstItem="87H-fp-D8r" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xjM-Pw-G3d"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" selectedImage="now_playing_tabbar_item" id="frw-jk-ED3"/>
                     <navigationItem key="navigationItem" id="xZG-69-1yi"/>
@@ -83,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="173"/>
+            <point key="canvasLocation" x="-959.4202898550725" y="172.76785714285714"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="qNa-Zg-sBP">
@@ -339,7 +345,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0fr-1I-gdh"/>
+        <segue reference="idb-A2-QwI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
